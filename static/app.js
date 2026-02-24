@@ -69,7 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // File upload - drag & drop
-    dropZone.addEventListener("click", () => fileInput.click());
+    dropZone.addEventListener("click", (e) => {
+        // Don't double-trigger when clicking the Browse Files label
+        if (e.target.closest('label[for="file-input"]')) return;
+        fileInput.click();
+    });
 
     dropZone.addEventListener("dragover", (e) => {
         e.preventDefault();

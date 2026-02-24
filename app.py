@@ -5,7 +5,7 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
-app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024  # 50MB upload limit
+app.config["MAX_CONTENT_LENGTH"] = 100 * 1024 * 1024  # 100MB upload limit
 
 
 @app.route("/")

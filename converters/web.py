@@ -61,7 +61,7 @@ class WebConverter(BaseConverter):
             with sync_playwright() as p:
                 browser = p.chromium.launch(headless=True)
                 page = browser.new_page()
-                page.goto(url, wait_until="networkidle", timeout=30000)
+                page.goto(url, wait_until="networkidle", timeout=60000)
                 html = page.content()
                 title = page.title()
                 browser.close()
@@ -101,7 +101,7 @@ class WebConverter(BaseConverter):
             from markdownify import markdownify
 
             req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            with urlopen(req, timeout=30) as resp:
+            with urlopen(req, timeout=60) as resp:
                 html = resp.read().decode("utf-8", errors="replace")
 
             md = markdownify(

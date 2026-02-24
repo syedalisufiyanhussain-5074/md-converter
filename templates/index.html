@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Converter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Markdown Converter</h1>
+            <p class="subtitle">Convert web pages and files to clean markdown for LLMs</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="scrape">Web Scrape</button>
+            <button class="tab" data-tab="convert">File Convert</button>
+        </div>
+
+        <!-- Web Scrape Panel -->
+        <div class="panel active" id="panel-scrape">
+            <div class="input-group">
+                <label for="url-input">Enter URL</label>
+                <div class="url-row">
+                    <input type="url" id="url-input" placeholder="https://example.com/article" autocomplete="off">
+                    <button class="btn-primary" id="btn-scrape">Convert</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- File Convert Panel -->
+        <div class="panel" id="panel-convert">
+            <div class="drop-zone" id="drop-zone">
+                <div class="drop-zone-content">
+                    <div class="drop-icon">&#128194;</div>
+                    <p>Drag & drop a file here</p>
+                    <p class="drop-hint">or</p>
+                    <label class="btn-secondary" for="file-input">Browse Files</label>
+                    <input type="file" id="file-input" hidden>
+                    <p class="file-name" id="file-name"></p>
+                </div>
+            </div>
+            <button class="btn-primary full-width" id="btn-convert" disabled>Convert</button>
+            <p class="supported-formats">
+                Supported: PDF, DOCX, PPTX, XLSX, CSV, JSON, XML, HTML, Images (OCR), EPUB, Audio
+            </p>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading" hidden>
+            <div class="spinner"></div>
+            <p>Converting...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error" id="error" hidden>
+            <p id="error-message"></p>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="result" id="result" hidden>
+            <div class="result-header">
+                <h2 id="result-title">Conversion Complete</h2>
+                <div class="result-actions">
+                    <button class="btn-primary" id="btn-download">Download .md</button>
+                    <button class="btn-secondary" id="btn-copy">Copy</button>
+                    <button class="btn-ghost" id="btn-clear">Clear</button>
+                </div>
+            </div>
+            <div class="preview-box">
+                <pre id="preview-content"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

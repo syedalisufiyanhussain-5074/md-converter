@@ -47,23 +47,10 @@ header {
     text-decoration: none;
 }
 
-.brand-logo {
-    height: 44px;
+.brand-title {
+    height: 56px;
     width: auto;
     object-fit: contain;
-}
-
-header h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.brand-deep {
-    color: #2563eb;
-}
-
-.brand-scan {
-    color: #7c3aed;
 }
 
 .subtitle {
